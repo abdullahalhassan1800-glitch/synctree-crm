@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mermaid Test 2</title>
+</head>
+<body>
+    <h2>Mermaid Test via CDN</h2>
+    <pre id="status">Loading...</pre>
+    <div class="mermaid">
+        graph TD
+            A[Hello] --> B[World]
+            B --> C[Mermaid]
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        document.getElementById('status').textContent = 'Mermaid loaded: ' + (typeof mermaid !== 'undefined');
+        if (typeof mermaid !== 'undefined') {
+            mermaid.initialize({ startOnLoad: true });
+            document.getElementById('status').textContent += ' | Initialized: true';
+        }
+    </script>
+</body>
+</html>
