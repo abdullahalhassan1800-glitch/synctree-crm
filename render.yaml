@@ -1,14 +1,13 @@
 services:
   - type: web
-    name: synctree-crm-api
+    name: synctree-crm
     runtime: node
     repo: https://github.com/abdullahalhassan1800-glitch/synctree-crm.git
     plan: free
     region: singapore
     branch: main
-    rootDir: server
-    buildCommand: npm install
-    startCommand: node src/app.js
+    buildCommand: cd server && npm install
+    startCommand: cd server && node src/app.js
     envVars:
       - key: NODE_ENV
         value: production
