@@ -140,17 +140,17 @@ export default function LeadList() {
   };
 
   const columns = [
-    { title: 'Name', key: 'name', render: (_, r) => `${r.firstName} ${r.lastName || ''}`, sorter: true },
-    { title: 'Email', dataIndex: 'email', key: 'email', ellipsis: true },
-    { title: 'Phone', dataIndex: 'phone', key: 'phone' },
-    { title: 'Company', dataIndex: 'company', key: 'company', ellipsis: true },
-    { title: 'Source', dataIndex: 'source', key: 'source', render: (s) => <Tag>{s}</Tag> },
-    { title: 'Stage', dataIndex: 'stageName', key: 'stageName', render: (s) => <Tag color={stageColors[s] || 'default'}>{s}</Tag> },
-    { title: 'Score', dataIndex: 'score', key: 'score', render: (s) => <Tag color={s > 50 ? 'green' : s > 20 ? 'orange' : 'default'}>{s}</Tag>, sorter: true },
-    { title: 'Assigned To', dataIndex: ['assignedTo', 'name'], key: 'assignedTo' },
-    { title: 'Created', dataIndex: 'createdAt', key: 'createdAt', render: (d) => new Date(d).toLocaleDateString(), sorter: true },
+    { title: 'Name', key: 'name', render: (_, r) => `${r.firstName} ${r.lastName || ''}`, sorter: true, align: 'left' },
+    { title: 'Email', dataIndex: 'email', key: 'email', ellipsis: true, align: 'left' },
+    { title: 'Phone', dataIndex: 'phone', key: 'phone', align: 'left' },
+    { title: 'Company', dataIndex: 'company', key: 'company', ellipsis: true, align: 'left' },
+    { title: 'Source', dataIndex: 'source', key: 'source', render: (s) => <Tag>{s}</Tag>, align: 'center' },
+    { title: 'Stage', dataIndex: 'stageName', key: 'stageName', render: (s) => <Tag color={stageColors[s] || 'default'}>{s}</Tag>, align: 'center' },
+    { title: 'Score', dataIndex: 'score', key: 'score', render: (s) => <Tag color={s > 50 ? 'green' : s > 20 ? 'orange' : 'default'}>{s}</Tag>, sorter: true, align: 'center' },
+    { title: 'Assigned To', dataIndex: ['assignedTo', 'name'], key: 'assignedTo', align: 'left' },
+    { title: 'Created', dataIndex: 'createdAt', key: 'createdAt', render: (d) => new Date(d).toLocaleDateString(), sorter: true, align: 'center' },
     {
-      title: 'Actions', key: 'actions', width: 100,
+      title: 'Actions', key: 'actions', width: 100, align: 'center',
       render: (_, r) => (
         <Space>
           <Tooltip title="Edit"><Button size="small" icon={<EditOutlined />} onClick={(e) => { e.stopPropagation(); navigate(`/leads/${r._id}`); }} /></Tooltip>
