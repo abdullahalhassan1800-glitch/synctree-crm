@@ -38,7 +38,7 @@ export default function Login() {
           </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit" loading={loading} block size="large">
-              Sign In
+              {loading ? 'Signing in...' : 'Sign In'}
             </Button>
           </Form.Item>
         </Form>
