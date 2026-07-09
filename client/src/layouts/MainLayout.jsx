@@ -65,7 +65,7 @@ export default function MainLayout() {
       >
         <div className="h-16 flex items-center justify-center border-b border-gray-200 dark:border-gray-700">
           <Text strong className={`${collapsed ? 'text-lg' : 'text-xl'} truncate`}>
-            {collapsed ? 'CRM' : 'iQSetters CRM'}
+            {collapsed ? 'CRM' : 'SycnTree CRM'}
           </Text>
         </div>
         <Menu

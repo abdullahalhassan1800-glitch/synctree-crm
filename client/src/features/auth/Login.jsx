@@ -25,7 +25,7 @@ export default function Login() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-900 dark:to-gray-800 p-4">
       <Card className="w-full max-w-md shadow-xl">
         <div className="text-center mb-8">
-          <Title level={2} className="mb-1">iQSetters CRM</Title>
+          <Title level={2} className="mb-1">SycnTree CRM</Title>
           <Text type="secondary">Sign in to your account</Text>
         </div>
         {error && <Alert message={error} type="error" showIcon closable className="mb-4" onClose={() => dispatch(clearError())} />}

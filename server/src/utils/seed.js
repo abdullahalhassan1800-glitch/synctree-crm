@@ -55,13 +55,13 @@ const seedDefaultData = async () => {
       const hashedPassword = await bcrypt.hash('admin123', 10);
       await User.create({
         name: 'Super Admin',
-        email: 'admin@iqsetters.com',
+        email: 'admin@synctree.com',
         password: hashedPassword,
         role: superAdminRole._id,
         roleName: 'super_admin',
         emailVerified: true,
       });
-      console.log('Default admin user created (admin@iqsetters.com / admin123)');
+      console.log('Default admin user created (admin@synctree.com / admin123)');
     }
   } catch (error) {
     console.error('Seed error:', error.message);

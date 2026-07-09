@@ -1,7 +1,7 @@
 {
-  "name": "iqsetters-crm-clone",
+  "name": "synctree-crm",
   "version": "1.0.0",
-  "description": "iQSetters CRM Clone - MERN Stack",
+  "description": "SycnTree CRM - MERN Stack",
   "scripts": {
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:client": "cd client && npm run dev",

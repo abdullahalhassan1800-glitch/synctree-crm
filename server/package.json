@@ -1,7 +1,7 @@
 {
-  "name": "iqsetters-crm-server",
+  "name": "synctree-crm-server",
   "version": "1.0.0",
-  "description": "iQSetters CRM Clone - Backend",
+  "description": "SycnTree CRM - Backend",
   "main": "src/app.js",
   "scripts": {
     "dev": "nodemon src/app.js",

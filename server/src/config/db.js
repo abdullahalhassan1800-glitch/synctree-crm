@@ -5,7 +5,7 @@ const connectDB = async () => {
   let uri = config.mongoUri;
   let options = {};
 
-  const isDefaultUri = uri === 'mongodb://localhost:27017/iqsetters_crm';
+  const isDefaultUri = uri === 'mongodb://localhost:27017/synctree_crm';
 
   if (isDefaultUri && process.env.NODE_ENV === 'production') {
     console.error('MONGODB_URI not set in production. Set it in Render environment variables.');

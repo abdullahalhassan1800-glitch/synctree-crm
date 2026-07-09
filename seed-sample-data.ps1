@@ -1,11 +1,11 @@
 $baseUrl = "http://localhost:5000/api"
 $headers = @{ "Content-Type" = "application/json" }
 
-Write-Host "=== iQSetters CRM Sample Data Seeder ===" -ForegroundColor Cyan
+Write-Host "=== SycnTree CRM Sample Data Seeder ===" -ForegroundColor Cyan
 
 # 1. Login as admin
 Write-Host "[1/6] Logging in as admin..." -ForegroundColor Yellow
-$login = Invoke-RestMethod -Uri "$baseUrl/auth/login" -Method Post -Headers $headers -Body (@{ email = "admin@iqsetters.com"; password = "admin123" } | ConvertTo-Json)
+$login = Invoke-RestMethod -Uri "$baseUrl/auth/login" -Method Post -Headers $headers -Body (@{ email = "admin@synctree.com"; password = "admin123" } | ConvertTo-Json)
 $token = $login.token
 $adminId = $login.user._id
 $authHeaders = @{ "Content-Type" = "application/json"; "Authorization" = "Bearer $token" }
@@ -14,14 +14,14 @@ Write-Host "  Admin logged in: $($login.user.name) ($($login.user.email))" -Fore
 # 2. Create additional users
 Write-Host "[2/6] Creating users..." -ForegroundColor Yellow
 $users = @(
-  @{ name = "Rahul Sharma"; email = "rahul@iqsetters.com"; phone = "9876543210"; password = "user123"; roleName = "manager" },
-  @{ name = "Priya Patel"; email = "priya@iqsetters.com"; phone = "9876543211"; password = "user123"; roleName = "sales_rep" },
-  @{ name = "Amit Singh"; email = "amit@iqsetters.com"; phone = "9876543212"; password = "user123"; roleName = "sales_rep" },
-  @{ name = "Sneha Gupta"; email = "sneha@iqsetters.com"; phone = "9876543213"; password = "user123"; roleName = "support" },
-  @{ name = "Vikram Joshi"; email = "vikram@iqsetters.com"; phone = "9876543214"; password = "user123"; roleName = "hr" },
-  @{ name = "Neha Verma"; email = "neha@iqsetters.com"; phone = "9876543215"; password = "user123"; roleName = "sales_rep" },
-  @{ name = "Arjun Reddy"; email = "arjun@iqsetters.com"; phone = "9876543216"; password = "user123"; roleName = "support" },
-  @{ name = "Pooja Mehta"; email = "pooja@iqsetters.com"; phone = "9876543217"; password = "user123"; roleName = "sales_rep" }
+  @{ name = "Rahul Sharma"; email = "rahul@synctree.com"; phone = "9876543210"; password = "user123"; roleName = "manager" },
+  @{ name = "Priya Patel"; email = "priya@synctree.com"; phone = "9876543211"; password = "user123"; roleName = "sales_rep" },
+  @{ name = "Amit Singh"; email = "amit@synctree.com"; phone = "9876543212"; password = "user123"; roleName = "sales_rep" },
+  @{ name = "Sneha Gupta"; email = "sneha@synctree.com"; phone = "9876543213"; password = "user123"; roleName = "support" },
+  @{ name = "Vikram Joshi"; email = "vikram@synctree.com"; phone = "9876543214"; password = "user123"; roleName = "hr" },
+  @{ name = "Neha Verma"; email = "neha@synctree.com"; phone = "9876543215"; password = "user123"; roleName = "sales_rep" },
+  @{ name = "Arjun Reddy"; email = "arjun@synctree.com"; phone = "9876543216"; password = "user123"; roleName = "support" },
+  @{ name = "Pooja Mehta"; email = "pooja@synctree.com"; phone = "9876543217"; password = "user123"; roleName = "sales_rep" }
 )
 
 $createdUsers = @()
@@ -164,4 +164,4 @@ foreach ($td in $ticketData) {
 }
 
 Write-Host "`n=== Sample data seeded successfully! ===" -ForegroundColor Cyan
-Write-Host "Log in at http://localhost:5173 with admin@iqsetters.com / admin123" -ForegroundColor White
+Write-Host "Log in at http://localhost:5173 with admin@synctree.com / admin123" -ForegroundColor White

@@ -24,7 +24,7 @@ export default function Register() {
       <Card className="w-full max-w-md shadow-xl">
         <div className="text-center mb-8">
           <Title level={2} className="mb-1">Create Account</Title>
-          <Text type="secondary">Register for iQSetters CRM</Text>
+          <Text type="secondary">Register for SycnTree CRM</Text>
         </div>
         {error && <Alert message={error} type="error" showIcon closable className="mb-4" onClose={() => dispatch(clearError())} />}
         <Form form={form} layout="vertical" onFinish={onFinish} autoComplete="off">
