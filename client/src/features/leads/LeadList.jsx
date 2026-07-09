@@ -140,17 +140,17 @@ export default function LeadList() {
   };
 
   const columns = [
-    { title: 'Name', key: 'name', render: (_, r) => `${r.firstName} ${r.lastName || ''}`, sorter: true, align: 'left' },
-    { title: 'Email', dataIndex: 'email', key: 'email', ellipsis: true, align: 'left' },
-    { title: 'Phone', dataIndex: 'phone', key: 'phone', align: 'left' },
-    { title: 'Company', dataIndex: 'company', key: 'company', ellipsis: true, align: 'left' },
-    { title: 'Source', dataIndex: 'source', key: 'source', render: (s) => <Tag>{s}</Tag>, align: 'center' },
-    { title: 'Stage', dataIndex: 'stageName', key: 'stageName', render: (s) => <Tag color={stageColors[s] || 'default'}>{s}</Tag>, align: 'center' },
-    { title: 'Score', dataIndex: 'score', key: 'score', render: (s) => <Tag color={s > 50 ? 'green' : s > 20 ? 'orange' : 'default'}>{s}</Tag>, sorter: true, align: 'center' },
-    { title: 'Assigned To', dataIndex: ['assignedTo', 'name'], key: 'assignedTo', align: 'left' },
-    { title: 'Created', dataIndex: 'createdAt', key: 'createdAt', render: (d) => new Date(d).toLocaleDateString(), sorter: true, align: 'center' },
+    { title: 'Name', key: 'name', render: (_, r) => `${r.firstName} ${r.lastName || ''}`, sorter: true, align: 'left', fixed: 'left', width: 160 },
+    { title: 'Email', dataIndex: 'email', key: 'email', ellipsis: true, align: 'left', responsive: ['md'], width: 200 },
+    { title: 'Phone', dataIndex: 'phone', key: 'phone', align: 'left', responsive: ['lg'] },
+    { title: 'Company', dataIndex: 'company', key: 'company', ellipsis: true, align: 'left', responsive: ['md'], width: 160 },
+    { title: 'Source', dataIndex: 'source', key: 'source', render: (s) => <Tag>{s}</Tag>, align: 'center', responsive: ['sm'] },
+    { title: 'Stage', dataIndex: 'stageName', key: 'stageName', render: (s) => <Tag color={stageColors[s] || 'default'}>{s}</Tag>, align: 'center', width: 110 },
+    { title: 'Score', dataIndex: 'score', key: 'score', render: (s) => <Tag color={s > 50 ? 'green' : s > 20 ? 'orange' : 'default'}>{s}</Tag>, sorter: true, align: 'center', responsive: ['sm'], width: 80 },
+    { title: 'Assigned To', dataIndex: ['assignedTo', 'name'], key: 'assignedTo', align: 'left', responsive: ['md'], width: 140 },
+    { title: 'Created', dataIndex: 'createdAt', key: 'createdAt', render: (d) => new Date(d).toLocaleDateString(), sorter: true, align: 'center', responsive: ['lg'], width: 110 },
     {
-      title: 'Actions', key: 'actions', width: 100, align: 'center',
+      title: 'Actions', key: 'actions', width: 90, align: 'center', fixed: 'right',
       render: (_, r) => (
         <Space>
           <Tooltip title="Edit"><Button size="small" icon={<EditOutlined />} onClick={(e) => { e.stopPropagation(); navigate(`/leads/${r._id}`); }} /></Tooltip>
@@ -215,11 +215,13 @@ export default function LeadList() {
         </Card>
       )}
 
+      <div className="overflow-x-auto">
       <Table
         dataSource={leads}
         columns={columns}
         rowKey="_id"
         loading={loading}
+        scroll={{ x: 700 }}
         rowSelection={{
           selectedRowKeys,
           onChange: setSelectedRowKeys,
@@ -237,6 +239,7 @@ export default function LeadList() {
           style: { cursor: 'pointer' },
         })}
       />
+      </div>
 
       <input
         type="file"
